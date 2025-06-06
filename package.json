@@ -6,7 +6,7 @@
   "license": "Unlicense",
   "repository": {
     "type": "git",
-    "url": "git+git@gitee.com:cuiqg/soup-mcp.git"
+    "url": "git+https://gitee.com/cuiqg/soup-mcp.git"
   },
   "author": "Tsuiqg <i@tsuiqg.me>",
   "files": [
