@@ -1,0 +1,35 @@
+{
+  "name": "@cuiqg/soup-mcp",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "license": "Unlicense",
+  "author": "Tsuiqg <i@tsuiqg.me>",
+  "files": [
+    "build"
+  ],
+  "bin": {
+    "soup-mcp": "build/index.js"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "prepublishOnly": "npm run build",
+    "release": "bumpp && npm publish",
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "ofetch": "^1.4.1"
+  },
+  "devDependencies": {
+    "@cuiqg/eslint-config": "^2.2.1",
+    "bumpp": "^10.1.1",
+    "eslint": "^9.28.0",
+    "tsdown": "^0.12.7"
+  }
+}
