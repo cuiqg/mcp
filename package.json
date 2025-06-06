@@ -1,12 +1,12 @@
 {
   "name": "@cuiqg/soup-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "一个毒鸡汤 MCP Server",
   "type": "module",
   "license": "Unlicense",
   "repository": {
     "type": "git",
-    "url": "git+https://gitee.com/cuiqg/soup-mcp.git"
+    "url": "https://gitee.com/cuiqg/soup-mcp.git"
   },
   "author": "Tsuiqg <i@tsuiqg.me>",
   "files": [
