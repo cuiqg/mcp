@@ -33,10 +33,7 @@ async function main() {
   const server = new McpServer({
     name: 'soup',
     version: '0.1.0',
-    capabilities: {
-      resources: {},
-      tools: {}
-    }
+    description: '一个`毒鸡汤` MCP Server'
   })
 
   server.tool('soup', '获取毒鸡汤', {},
