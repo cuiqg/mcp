@@ -1,7 +1,7 @@
 {
   "name": "@cuiqg/soup-mcp",
-  "version": "0.1.0",
-  "description": "一个`毒鸡汤` MCP Server",
+  "version": "1.0.0",
+  "description": "一个毒鸡汤 MCP Server",
   "type": "module",
   "license": "Unlicense",
   "repository": {
