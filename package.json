@@ -1,7 +1,7 @@
 {
   "name": "@cuiqg/mcp",
   "version": "1.0.1",
-  "description": "一个毒鸡汤 MCP Server",
+  "description": "脆皮的 `MCP Server`",
   "type": "module",
   "license": "Unlicense",
   "repository": {
