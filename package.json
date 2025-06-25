@@ -1,5 +1,5 @@
 {
-  "name": "@cuiqg/soup-mcp",
+  "name": "@cuiqg/mcp",
   "version": "1.0.1",
   "description": "一个毒鸡汤 MCP Server",
   "type": "module",
@@ -13,7 +13,7 @@
     "build"
   ],
   "bin": {
-    "soup-mcp": "build/index.js"
+    "cuiqg-mcp": "build/index.js"
   },
   "publishConfig": {
     "access": "public",
@@ -24,11 +24,16 @@
     "dev": "tsdown --watch",
     "prepublishOnly": "npm run build",
     "release": "bumpp && npm publish",
+    "preinstall": "npx force-resolutions",
     "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+  },
+  "resolutions": {
+    "bin-wrapper": "npm:bin-wrapper-china"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1",
-    "ofetch": "^1.4.1"
+    "ofetch": "^1.4.1",
+    "undici": "^7.10.0"
   },
   "devDependencies": {
     "@cuiqg/eslint-config": "^2.2.1",
