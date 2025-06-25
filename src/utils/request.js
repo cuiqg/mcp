@@ -5,9 +5,9 @@ import { ProxyAgent } from 'undici'
 /**
  * 请求
  *
- * @see {@link https://ofetch.unjs.io/}
- * @param {string} url
- * @param {object} options
+ * @see {@link https://ofetch.unjs.io/|UnJS}
+ * @param {string} url - 请求URL
+ * @param {object} [options={}] - 请求选项
  * @returns {Promise<object>}
  */
 export default async (url, options = {}) => {

@@ -1,7 +1,10 @@
 import request from '../utils/request.js'
 
 /**
- * Callback
+ * @function
+ * @name dujitangCb
+ * @ses {@link https://xxapi.cn/doc/dujitang|小小API}
+ *
  */
 const dujitangCb = async () => {
   const url = `https://v2.xxapi.cn/api/dujitang`
@@ -34,6 +37,7 @@ const dujitangCb = async () => {
 
 /**
  * 配置
+ * @type {import('@modelcontextprotocol/sdk/types.js').ToolSchema}
  */
 const dujitangConfig = {
   title: '毒鸡汤',
@@ -45,6 +49,7 @@ const dujitangConfig = {
 
 /**
  * 名称
+ * @type {string}
  */
 const dujitangName = 'get_dujitang'
 
