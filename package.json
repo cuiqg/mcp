@@ -1,12 +1,12 @@
 {
   "name": "@cuiqg/mcp",
   "version": "1.0.1",
-  "description": "脆皮的 `MCP Server`",
+  "description": "脆皮的 `MCP` 服务",
   "type": "module",
   "license": "Unlicense",
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/cuiqg/soup-mcp.git"
+    "url": "https://github.com/cuiqg/mcp.git"
   },
   "author": "Tsuiqg <i@tsuiqg.me>",
   "files": [
@@ -25,7 +25,7 @@
     "prepublishOnly": "npm run build",
     "release": "bumpp && npm publish",
     "preinstall": "npx force-resolutions",
-    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+    "inspector": "npx @modelcontextprotocol/inspector node build/index.js"
   },
   "resolutions": {
     "bin-wrapper": "npm:bin-wrapper-china"
@@ -36,7 +36,7 @@
     "undici": "^7.10.0"
   },
   "devDependencies": {
-    "@cuiqg/eslint-config": "^2.2.1",
+    "@cuiqg/eslint-config": "^2.2.3",
     "bumpp": "^10.1.1",
     "eslint": "^9.28.0",
     "tsdown": "^0.12.7"
