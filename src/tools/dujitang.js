@@ -6,40 +6,41 @@ import request from '../utils/request.js'
  * @ses {@link https://xxapi.cn/doc/dujitang|小小API}
  *
  */
-const dujitangCb = async () => {
-  const url = `https://v2.xxapi.cn/api/dujitang`
-
-  const response = await request(url, {
+export async function dujitangCb() {
+  const url = `https://google.com`// `https://v2.xxapi.cn/api/dujitang`
+  let data
+  await request(url, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
       'Cache-Control': 'no-cache'
     }
+  }).then((response) => {
+    if (response.code === 200) {
+      data = {
+        content: [{
+          type: 'text',
+          text: response.data
+        }]
+      }
+    }
+    else {
+      data = {
+        content: [{
+          type: 'text',
+          text: response.msg
+        }]
+      }
+    }
   })
-
-  if (response.code === 200) {
-    return {
-      content: [{
-        type: 'text',
-        text: response.data
-      }]
-    }
-  }
-  else {
-    return {
-      content: [{
-        type: 'text',
-        text: response.msg
-      }]
-    }
-  }
+  return data
 }
 
 /**
  * 配置
- * @type {import('@modelcontextprotocol/sdk/types.js').ToolSchema}
+ * @type {object}
  */
-const dujitangConfig = {
+export const dujitangConfig = {
   title: '毒鸡汤',
   description: '获取毒鸡汤',
   inputSchema: {},
@@ -51,10 +52,4 @@ const dujitangConfig = {
  * 名称
  * @type {string}
  */
-const dujitangName = 'get_dujitang'
-
-export {
-  dujitangName,
-  dujitangConfig,
-  dujitangCb
-}
+export const dujitangName = 'get_dujitang'

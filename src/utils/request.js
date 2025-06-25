@@ -10,7 +10,7 @@ import { ProxyAgent } from 'undici'
  * @param {object} [options={}] - 请求选项
  * @returns {Promise<object>}
  */
-export default async (url, options = {}) => {
+export default async function (url, options = {}) {
   const proxy = process.env.HTTPS_PROXY || process.env.HTTP_PROXY
 
   if (proxy) {
@@ -43,5 +43,7 @@ export default async (url, options = {}) => {
     ...options
   }
 
-  return await ofetch(url, fetchOptions)
+  const response = await ofetch(url, fetchOptions)
+
+  return response
 }

@@ -15,7 +15,7 @@ async function main() {
   server.registerTool(
     dujitangName,
     dujitangConfig,
-    dujitangCb()
+    await dujitangCb()
   )
 
   const transport = new StdioServerTransport()
