@@ -15,6 +15,7 @@ export default defineConfig({
   shims: true,
   clean: true,
   platform: 'node',
+  minify: true,
   onSuccess: async () => {
     const fs = require('node:fs')
     const path = require('node:path')
@@ -23,7 +24,7 @@ export default defineConfig({
       const files = fs.readdirSync(outputDir)
 
       files.forEach((file) => {
-        if (path.extname(file) === '.js') {
+        if (path.basename(file, '.js') === 'index') {
           const filePath = path.join(outputDir, file)
           fs.chmodSync(filePath, 755) // 修改为可读、写、执行权限
           console.warn(`已修改文件权限: ${filePath}`)

@@ -3,7 +3,17 @@
 import process from 'node:process'
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
-import { dujitangName, dujitangConfig, dujitangCb } from './tools/index.js'
+import {
+  dujitangName,
+  dujitangConfig,
+  dujitangCb,
+  heisiCb,
+  heisiConfig,
+  heisiName,
+  jkCb,
+  jkConfig,
+  jkName
+} from './tools/index.js'
 
 async function main() {
   const server = new McpServer({
@@ -15,7 +25,25 @@ async function main() {
   server.registerTool(
     dujitangName,
     dujitangConfig,
-    await dujitangCb()
+    async () => {
+      return await dujitangCb()
+    }
+  )
+
+  server.registerTool(
+    heisiName,
+    heisiConfig,
+    async () => {
+      return await heisiCb()
+    }
+  )
+
+  server.registerTool(
+    jkName,
+    jkConfig,
+    async () => {
+      return await jkCb()
+    }
   )
 
   const transport = new StdioServerTransport()
