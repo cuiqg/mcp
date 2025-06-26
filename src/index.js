@@ -51,8 +51,6 @@ async function main() {
 
   const transport = new StdioServerTransport()
   await server.connect(transport)
-  // eslint-disable-next-line no-console
-  console.log('Cuiqg MCP Server runing on stdio')
 }
 
 main().catch((error) => {
