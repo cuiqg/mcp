@@ -1,6 +1,5 @@
-<figure align="center">
-  <picture>
-    <img src="https://github.com/user-attachments/assets/187322a5-e5d2-4d5f-88d4-4d848317cf6e" alt="Model Context Protocol">
-  </picture>
-  <figcaption align="center"><var>`MCP`</var> server for <a href="https://github.com/cuiqg" target="_blank">@cuiqg</a></figcaption>
-</firure>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://jiashu.jsdmirror.com/gh/cuiqg/art%40main/img/mcp-dark.png" type="image/png">
+  <source media="(prefers-color-scheme: light)" srcset="https://cdn.jsdmirror.com/gh/cuiqg/art@main/img/mcp.png" type="image/png">
+    <img src="https://cdn.jsdmirror.com/gh/cuiqg/art@main/img/mcp.png" alt="Project OGP">
+</picture>
