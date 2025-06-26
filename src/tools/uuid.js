@@ -1,12 +1,13 @@
-import { request, imageToBase64 } from '../utils.js'
+import { request } from '../utils.js'
 
 /**
  * 回调函数
- * @ses {@link https://xxapi.cn/doc/jk|小小API}
+ * @ses {@link https://xxapi.cn/doc/uuid|小小API}
+ * @returns {Promise<{content: [{type: string, text: string}], isError: boolean}>}
  *
  */
 const cb = async () => {
-  const url = `https://v2.xxapi.cn/api/jk`
+  const url = `https://v2.xxapi.cn/api/uuid`
   let data
   const res = await request(url)
 
@@ -21,12 +22,10 @@ const cb = async () => {
   }
   else {
     if (res.results.code === 200) {
-      const img = await imageToBase64(res.results.data)
       data = {
         content: [{
-          type: 'image',
-          data: img.base64,
-          mimeType: img.contentType
+          type: 'text',
+          text: res.results.data
         }]
       }
     }
@@ -49,14 +48,14 @@ const cb = async () => {
  * @type {object}
  */
 const config = {
-  title: '随机 Joshi Kōsei 制服图片',
-  description: '随机返回高质量 Joshi Kōsei 制服图片'
+  title: 'uuid生成',
+  description: 'UUID生成服务'
 }
 
 /**
  * 名称
  * @type {string}
  */
-const name = 'get_jk'
+const name = 'get_uuid'
 
-export const jk = { config, name, cb }
+export const uuid = { config, name, cb }

@@ -18,28 +18,29 @@ export async function request(url, options = {}) {
     redirect: 'follow',
     ...options
   }
+
   try {
     const response = await fetch(url, fetchOptions)
 
     if (!response.ok) {
-      console.error(`[Fetch ${response.url} error]:`, response.error())
+      console.error(`[Fetch \`${response.url}\` error]: (${response.status}) ${response.statusText}`)
 
       return {
         results: [],
-        error: `[Fetch ${response.url} error]: ${response.error()}`
+        error: `请求失败信息: (${response.status}) ${response.statusText}`
       }
     }
 
     return {
-      results: await response.json(),
+      results: { ...await response.json() },
       error: null
     }
   }
   catch (error) {
-    console.error('[Fetch error]:', error)
+    console.error('[Fetch catch error]:', error)
     return {
       results: [],
-      error: `[Fetch error]: ${error}`
+      error: `请求失败捕获: ${error}`
     }
   }
 }

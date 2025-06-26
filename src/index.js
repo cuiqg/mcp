@@ -4,15 +4,10 @@ import process from 'node:process'
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import {
-  dujitangName,
-  dujitangConfig,
-  dujitangCb,
-  heisiCb,
-  heisiConfig,
-  heisiName,
-  jkCb,
-  jkConfig,
-  jkName
+  dujitang,
+  uuid,
+  heisi,
+  jk
 } from './tools/index.js'
 
 async function main() {
@@ -23,31 +18,41 @@ async function main() {
   })
 
   server.registerTool(
-    dujitangName,
-    dujitangConfig,
+    dujitang.name,
+    dujitang.config,
     async () => {
-      return await dujitangCb()
+      return await dujitang.cb()
     }
   )
 
   server.registerTool(
-    heisiName,
-    heisiConfig,
+    heisi.name,
+    heisi.config,
     async () => {
-      return await heisiCb()
+      return await heisi.cb()
     }
   )
 
   server.registerTool(
-    jkName,
-    jkConfig,
+    jk.name,
+    jk.config,
     async () => {
-      return await jkCb()
+      return await jk.cb()
+    }
+  )
+
+  server.registerTool(
+    uuid.name,
+    uuid.config,
+    async () => {
+      return await uuid.cb()
     }
   )
 
   const transport = new StdioServerTransport()
   await server.connect(transport)
+  // eslint-disable-next-line no-console
+  console.log('Cuiqg MCP Server runing on stdio')
 }
 
 main().catch((error) => {

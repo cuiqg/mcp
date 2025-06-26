@@ -1,11 +1,11 @@
 import { request, imageToBase64 } from '../utils.js'
 
 /**
- * @name heisiCb
+ * 回调函数
  * @ses {@link https://xxapi.cn/doc/heisi|小小API}
- *
+ * @returns {Promise<{content: [{type: string, text: string}], isError: boolean}>}
  */
-export async function heisiCb() {
+export const cb = async () => {
   const url = `https://v2.xxapi.cn/api/heisi`
   let data
   const res = await request(url)
@@ -15,7 +15,8 @@ export async function heisiCb() {
       content: [{
         type: 'text',
         text: res.error
-      }]
+      }],
+      isError: true
     }
   }
   else {
@@ -34,7 +35,8 @@ export async function heisiCb() {
         content: [{
           type: 'text',
           text: res.results.msg
-        }]
+        }],
+        isError: true
       }
     }
   }
@@ -46,7 +48,7 @@ export async function heisiCb() {
  * 配置
  * @type {object}
  */
-export const heisiConfig = {
+const config = {
   title: '随机黑丝图片',
   description: '随机返回黑色丝袜图片'
 }
@@ -55,4 +57,6 @@ export const heisiConfig = {
  * 名称
  * @type {string}
  */
-export const heisiName = 'get_heisi'
+const name = 'get_heisi'
+
+export const heisi = { config, name, cb }
