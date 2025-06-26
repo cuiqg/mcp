@@ -14,7 +14,7 @@ async function main() {
   const server = new McpServer({
     name: 'cuiqg-mcp',
     version: '1.0.0',
-    description: 'Tsuiqg\'s MCP Server'
+    description: 'Cuiqg\'s MCP Server'
   })
 
   server.registerTool(
