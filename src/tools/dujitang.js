@@ -1,70 +1,58 @@
 import { request } from '../utils.js'
 
 /**
- * 回调函数
+ * Register Dujitang Tool
  * @ses {@link https://xxapi.cn/doc/dujitang|小小API}
- * @returns {Promise<{content: [{type: string, text: string}], isError: boolean}>}
+ * @returns {void}
  */
-const cb = async () => {
-  const url = `https://v2.xxapi.cn/api/dujitang`
-  let data
-  const res = await request(url, { method: 'POST', redirect: 'follow' })
+export function registerDujitangTool(server) {
+  server.registerTool(
+    'get_dujitang',
+    {
+      title: '毒鸡汤',
+      description: '每日一碗“毒鸡汤”式幽默内容'
+    },
+    async () => {
+      const url = `https://v2.xxapi.cn/api/dujitang`
+      let data
+      const res = await request(url, { method: 'POST', redirect: 'follow' })
 
-  if (res.error) {
-    data = {
-      content: [
-        {
-          type: 'text',
-          text: res.error
+      if (res.error) {
+        data = {
+          content: [
+            {
+              type: 'text',
+              text: res.error
+            }
+          ],
+          isError: true
         }
-      ],
-      isError: true
-    }
-  }
-  else {
-    if (res.results.code === 200) {
-      data = {
-        content: [
-          {
-            type: 'text',
-            text: res.results.data
-          }
-        ]
       }
-    }
-    else {
-      data = {
-        content: [
-          {
-            type: 'text',
-            text: res.results.msg
+      else {
+        if (res.results.code === 200) {
+          data = {
+            content: [
+              {
+                type: 'text',
+                text: res.results.data
+              }
+            ]
           }
-        ],
-        isError: true
+        }
+        else {
+          data = {
+            content: [
+              {
+                type: 'text',
+                text: res.results.msg
+              }
+            ],
+            isError: true
+          }
+        }
       }
+
+      return data
     }
-  }
-
-  return data
-}
-
-/**
- * 配置
- * @type {object}
- */
-const config = {
-  title: '毒鸡汤',
-  description: '每日一碗“毒鸡汤”式幽默内容'
-}
-
-/**
- * 名称
- * @type {string}
- */
-const name = 'get_dujitang'
-
-export const dujitang = {
-  name,
-  config,
-  cb
+  )
 }

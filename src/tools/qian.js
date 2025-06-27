@@ -1,18 +1,19 @@
 import { request, imageToBase64 } from '../utils.js'
 
 /**
- * Register Heisi Tool
- * @ses {@link https://xxapi.cn/doc/heisi|小小API}
+ * Register WenChangDiJun Tool
+ * @ses {@link https://xxapi.cn/doc/wenchangdijunrandom|小小API}
+ * @param {import('@modelcontextprotocol/sdk/server/mcp.js').McpServer} server
  * @returns {void}
  */
-export function registerHeisiTool(server) {
+export function registerQianTool(server) {
   server.registerTool(
-    'get_heisi',
+    'get_qian',
     {
-      title: '随机黑丝图片',
-      description: '随机返回黑色丝袜图片'
+      title: '随机黑文昌帝君灵签',
+      description: '文昌帝君抽签'
     }, async () => {
-      const url = `https://v2.xxapi.cn/api/heisi`
+      const url = `https://v2.xxapi.cn/api/wenchangdijunrandom`
       let data
       const res = await request(url)
 
@@ -27,12 +28,21 @@ export function registerHeisiTool(server) {
       }
       else {
         if (res.results.code === 200) {
-          const img = await imageToBase64(res.results.data)
+          const img = await imageToBase64(res.results.data.pic)
           data = {
             content: [{
               type: 'image',
               data: img.base64,
               mimeType: img.contentType
+            },
+            {
+              type: 'text',
+              text: `${res.results.data.title}
+======【签诗】=======
+${res.results.data.poem}
+======【解签】=======
+${res.results.data.content}
+=====================`
             }]
           }
         }

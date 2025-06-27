@@ -1,18 +1,18 @@
 import { request, imageToBase64 } from '../utils.js'
 
 /**
- * Register Heisi Tool
- * @ses {@link https://xxapi.cn/doc/heisi|小小API}
+ * Register Meinv Pic Tool
+ * @ses {@link https://xxapi.cn/doc/meinvpic|小小API}
  * @returns {void}
  */
-export function registerHeisiTool(server) {
+export function registerMeinvTool(server) {
   server.registerTool(
-    'get_heisi',
+    'get_meinv',
     {
-      title: '随机黑丝图片',
-      description: '随机返回黑色丝袜图片'
+      title: '随机小姐姐图片',
+      description: '各种风格的美女图片'
     }, async () => {
-      const url = `https://v2.xxapi.cn/api/heisi`
+      const url = `https://v2.xxapi.cn/api/meinvpic`
       let data
       const res = await request(url)
 

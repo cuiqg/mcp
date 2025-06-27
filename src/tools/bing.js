@@ -1,18 +1,19 @@
 import { request, imageToBase64 } from '../utils.js'
 
 /**
- * Register Heisi Tool
- * @ses {@link https://xxapi.cn/doc/heisi|小小API}
+ * Register Bing Wrapper Tool
+ * @ses {@link https://xxapi.cn/doc/bing|小小API}
+ * @param {import('@modelcontextprotocol/sdk/types.js')} server
  * @returns {void}
  */
-export function registerHeisiTool(server) {
+export function registerBingTool(server) {
   server.registerTool(
-    'get_heisi',
+    'get_bing',
     {
-      title: '随机黑丝图片',
-      description: '随机返回黑色丝袜图片'
+      title: 'BING 每日一图',
+      description: '获取 Bing 每日一图'
     }, async () => {
-      const url = `https://v2.xxapi.cn/api/heisi`
+      const url = `https://v2.xxapi.cn/api/bing`
       let data
       const res = await request(url)
 
