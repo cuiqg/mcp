@@ -38,11 +38,11 @@ export function registerQianTool(server) {
             {
               type: 'text',
               text: `${res.results.data.title}
-======【签诗】=======
+=====【签诗】======
 ${res.results.data.poem}
-======【解签】=======
+=====【解签】======
 ${res.results.data.content}
-=====================`
+`
             }]
           }
         }
